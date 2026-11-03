@@ -1,17 +1,32 @@
 # Tic-Tac-Toe Game
 
-A placeholder for a Tic-Tac-Toe game in Python. No game code has been added yet.
+Console Tic-Tac-Toe in Python against a computer player that uses **minimax with alpha-beta pruning**, so it never loses.
 
-## Current Status
+> Written with AI assistance (Claude), reviewed and published by the repository owner.
 
-- README only.
+## Run
 
-## Roadmap
+```bash
+python tictactoe.py          # you are X, the computer is O; enter 1-9 (top-left = 1)
+python -m unittest -v        # 8 tests
+```
 
-- Console version with two players
-- Optional computer opponent
-- Run instructions and a short demo
+Python 3.8+ and no extra packages.
+
+## How it works
+
+`best_move()` tries every legal move, scores the resulting game tree with minimax (win = `10 - depth`, loss = `depth - 10`, draw = 0 so it wins fast and loses slowly) and skips branches that cannot change the result (alpha-beta pruning). The board is a plain list of 9 cells.
+
+## Verified
+
+- ✅ 8 unit tests, including an **exhaustive** check: the computer plays against *every possible* sequence of opponent moves, once as X and once as O, and never loses.
+- ✅ Takes an immediate win, blocks an immediate loss, does not mutate the board it is given.
+- 🟡 The interactive prompt was exercised with scripted input only.
+
+## Possible next steps
+
+Two-player mode, difficulty levels (random / perfect), a simple GUI.
 
 ## Author
 
-Aymen — [github.com/aymnb7178](https://github.com/aymnb7178)
+Aymen - [github.com/aymnb7178](https://github.com/aymnb7178)
